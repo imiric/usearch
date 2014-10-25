@@ -2,6 +2,9 @@
   "name": "usearch",
   "version": "0.0.1",
   "description": "Micro search engine",
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/imiric/usearch"
@@ -15,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/imiric/usearch/issues"
   },
-  "homepage": "https://github.com/imiric/usearch"
+  "homepage": "https://github.com/imiric/usearch",
+  "dependencies": {
+    "hapi": "^7.1.1"
+  }
 }
