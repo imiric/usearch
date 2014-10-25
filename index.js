@@ -6,7 +6,11 @@
 var Hapi = require('hapi'),
     handlers = require('./handlers');
 
-var server = Hapi.createServer(8000);
+var server = Hapi.createServer(8000, {
+  payload: {
+    maxBytes: process.env.MAX_PAYLOAD_SIZE || 5242880
+  }
+});
 
 server.route([
   {
