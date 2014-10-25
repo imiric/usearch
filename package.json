@@ -1,0 +1,19 @@
+{
+  "name": "usearch",
+  "version": "0.0.1",
+  "description": "Micro search engine",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imiric/usearch"
+  },
+  "keywords": [
+    "micro",
+    "search"
+  ],
+  "author": "Ivan Mirić <imiric@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imiric/usearch/issues"
+  },
+  "homepage": "https://github.com/imiric/usearch"
+}
