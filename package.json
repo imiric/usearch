@@ -22,7 +22,8 @@
   "homepage": "https://github.com/imiric/usearch",
   "dependencies": {
     "hapi": "^7.1.1",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "udawg": "0.0.1"
   },
   "devDependencies": {
     "chai": "^1.9.2",

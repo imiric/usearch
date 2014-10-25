@@ -2,7 +2,8 @@
 /**
  * Module dependencies.
  */
-var _ = require('lodash');
+var _ = require('lodash'),
+    Dawg = require('udawg');
 
 exports = module.exports = {
   search: search,
@@ -27,16 +28,27 @@ function wrapResponse(result, data, extra) {
   );
 }
 
+
+var dawg = Dawg();
+
 /**
  * Search for words in the dictionary starting with the given prefix
  */
 function search(request, reply) {
-  reply(wrapResponse(Result.SUCCESS, []));
+  var prefix = request.params.prefix,
+      node = dawg.lookup(prefix, false),
+      result = dawg.values(node, prefix);
+
+  reply(wrapResponse(Result.SUCCESS, result));
 }
 
 /**
  * Create the dictionary of words
  */
 function dictionary(request, reply) {
+  var words = request.payload || [];
+  words.forEach(function(word) {
+    dawg.insert(word);
+  });
   reply(wrapResponse(Result.SUCCESS));
 }
