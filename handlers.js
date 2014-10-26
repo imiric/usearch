@@ -35,7 +35,7 @@ var dawg = Dawg();
  * Search for words in the dictionary starting with the given prefix
  */
 function search(request, reply) {
-  var prefix = request.params.prefix,
+  var prefix = request.params.prefix.toLowerCase(),
       node = dawg.lookup(prefix, false),
       result = dawg.values(node, prefix);
 
@@ -48,7 +48,7 @@ function search(request, reply) {
 function dictionary(request, reply) {
   var words = request.payload || [];
   words.forEach(function(word) {
-    dawg.insert(word);
+    dawg.insert(word.toLowerCase());
   });
   reply(wrapResponse(Result.SUCCESS));
 }
