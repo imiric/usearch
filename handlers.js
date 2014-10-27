@@ -46,7 +46,12 @@ function search(request, reply) {
  * Create the dictionary of words
  */
 function dictionary(request, reply) {
-  var words = request.payload || [];
+  var words = request.payload;
+  if (!words.length) {
+    return reply(wrapResponse(
+      Result.ERROR, null, {message: 'Empty dictionary'}
+    )).code(400);
+  }
   words.forEach(function(word) {
     dawg.insert(word.toLowerCase());
   });
